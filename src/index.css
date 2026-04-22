@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+:root {
+  --brass: #b8860b;
+  --brass-light: #e5c46e;
+  --brass-dark: #6e4c02;
+  --wood-dark: #120a05;
+  --wood-light: #26160c;
+  --parchment: #dfcaab;
+  --text-gold: #ebb860;
+  --text-dark: #22140a;
+  --text-light: #cde3ea;
+  --panel-blue: #0b1a30;
+  --panel-blue-dark: #040914;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: var(--wood-dark);
+  color: var(--text-light);
+  overflow: hidden;
+}
+
+/* Base App Container - wood frame */
+.app-container {
+  border: 12px solid #2a180c; 
+  outline: 2px solid var(--brass);
+  outline-offset: -2px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.9), inset 0 0 10px rgba(0,0,0,1);
+  background-color: var(--panel-blue-dark);
+}
+
+/* Top bar style */
+.retro-header {
+  background: linear-gradient(to bottom, #0d1e34, #040914);
+  color: var(--text-gold);
+  border-bottom: 2px solid var(--brass);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--wood-dark);
+  border-left: 1px solid var(--brass-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brass-dark);
+  border: 1px solid var(--brass);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brass);
+}
+
+/* Main typography components */
+.panel-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-bottom: 2px solid var(--brass);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  font-family: 'Times New Roman', serif;
+  color: var(--text-dark);
+}
+
+/* Market table styles */
+.market-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.market-table th {
+  padding: 8px;
+  background: transparent;
+  border-bottom: 1px solid #c2a781;
+  font-weight: bold;
+}
+
+.market-table td {
+  padding: 6px;
+  border-bottom: 1px solid rgba(138, 101, 56, 0.2);
+}
+
+.market-table tr:nth-child(even) {
+  background-color: rgba(138, 101, 56, 0.05);
+}
+
+.market-table tr:hover {
+  background-color: rgba(138, 101, 56, 0.15);
+}
+
+.price-up { color: #8b0000; font-weight: bold; }
+.price-down { color: #004d00; font-weight: bold; }
+
+/* Side Menu Buttons */
+.menu-btn {
+  background: linear-gradient(to bottom, #112a4f, #09152b);
+  border: 2px solid var(--brass);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 4px 6px rgba(0,0,0,0.5);
+  color: var(--text-gold);
+  text-shadow: 1px 1px 3px black;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  border-radius: 2px;
+}
+
+.menu-btn::before {
+  content: '';
+  position: absolute;
+  top: 2px; left: 2px; right: 2px; bottom: 2px;
+  border: 1px solid rgba(229, 196, 110, 0.2);
+  pointer-events: none;
+}
+
+.menu-btn:hover {
+  background: linear-gradient(to bottom, #1a3d70, #0c1e3d);
+  border-color: var(--brass-light);
+  transform: translateY(-1px);
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.9), 0 6px 10px rgba(0,0,0,0.6);
+}
+
+.menu-btn.active {
+  background: linear-gradient(to bottom, #1d4680, #132a4f);
+  border-color: var(--brass-light);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 0 10px rgba(229, 196, 110, 0.4);
+}
+
+/* Small buttons in parchment area */
+.retro-btn {
+  background: linear-gradient(to bottom, #112a4f, #09152b);
+  border: 1px solid var(--brass);
+  color: var(--text-gold);
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5), 2px 2px 4px rgba(0,0,0,0.3);
+  font-family: inherit;
+  font-weight: bold;
+  padding: 4px 8px;
+}
+.retro-btn:hover:not(:disabled) {
+  background: linear-gradient(to bottom, #1a3d70, #0c1e3d);
+  border-color: var(--brass-light);
+}
+.retro-btn:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.8);
+}
+.btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.btn-red {
+  background: linear-gradient(to bottom, #5a1f1b, #3a110e);
+}
+.btn-red:hover:not(:disabled) {
+  background: linear-gradient(to bottom, #752924, #4a1612);
+}
+
+.quest-card {
+  padding: 12px;
+  border: 1px solid #c2a781;
+  background-color: rgba(138, 101, 56, 0.1);
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.highlight {
+  color: var(--brass-light);
+  font-weight: bold;
+  font-family: monospace;
+}
+
+/* Map area styling */
+.retro-map {
+  background-color: #0b1d3a;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(229,196,110,0.15) 0%, transparent 80%);
+}
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+}
+
+.port-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: crosshair;
+  transition: all 0.3s;
+  z-index: 10;
+}
+.port-marker .icon {
+  width: 14px;
+  height: 14px;
+  background-color: var(--brass);
+  border: 2px solid #000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--brass);
+}
+.port-marker.active .icon {
+  background-color: #ebb860;
+  border-color: #fff;
+  width: 18px;
+  height: 18px;
+  box-shadow: 0 0 15px #ebb860;
+}
+.port-marker .name {
+  margin-top: 4px;
+  background: rgba(0,0,0,0.8);
+  color: var(--text-gold);
+  padding: 2px 6px;
+  border: 1px solid var(--brass);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.footer-log {
+  height: 120px;
+  background-color: #040a12;
+  color: #8e9299;
+  padding: 10px 20px;
+  font-family: monospace;
+  font-size: 12px;
+  overflow-y: auto;
+  border-top: 4px solid var(--brass);
+}
+.log-entry {
+  display: flex;
+  gap: 10px;
+  padding: 2px 0;
+}
+.log-time { color: var(--brass); margin-right: 8px;}
+.log-msg { color: #a9b7c6; }
+.log-msg .highlight { color: #e5c46e; font-weight: bold; }
